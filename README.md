@@ -1,1 +1,1 @@
-# turbo-gitops
+# Deploying Turbonomic with GitOps
