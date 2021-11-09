@@ -1,4 +1,4 @@
 ---
-repoURL: https://github.com/cloud-pak-gitops/turbo-gitops
+repoURL: https://github.com/huang-cn/turbo-gitops
 metadata:
   turbo_namespace: turbonomic
