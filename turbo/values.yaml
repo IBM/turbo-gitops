@@ -1,4 +1,7 @@
 ---
 repoURL: https://github.com/huang-cn/turbo-gitops
 metadata:
-  turbo_namespace: turbonomic2
+  turbo_namespace: turbonomic
+  registry: index.docker.io
+  imageUsername: docker-user
+  imagePassword: docker-pass

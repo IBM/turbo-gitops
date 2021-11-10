@@ -13,9 +13,9 @@ spec:
 
   # Global settings
   global:
-  #  registry: index.docker.io
-  #  imageUsername: turbouser
-  #  imagePassword: turbopassword
+    registry: {{.Values.metadata.registry}}
+    imageUsername: {{.Values.metadata.imageUsername}}
+    imagePassword: {{.Values.metadata.imagePassword}}
     repository: turbonomic
     tag: 8.3.4
     #externalIP: 10.0.2.15
