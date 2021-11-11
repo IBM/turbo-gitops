@@ -5,7 +5,7 @@
 - Argocd
 - Resource requirement, please refer to the [Turbonomic Installation Guide](https://docs.turbonomic.com/docApp/doc/index.html?config=Install_Pnt#!/Latest_Install/_INSTALL_Topics_XL/TOPIC_Minimum_Requirements_XL.xml).
 
-### Create target namespace and add config security context for the target Cluster.
+### Create target namespace and configure security context for the target Cluster.
 ```shell
 oc create ns turbonomic
 oc adm policy add-scc-to-group anyuid system:serviceaccounts:turbonomic
