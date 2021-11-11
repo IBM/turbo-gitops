@@ -1,9 +1,11 @@
-# Deploying Turbonomic with GitOps Cli
+# Deploying Turbonomic with GitOps
 
-### Prerequisite for deploying Turbonomic to OpenShift Cluster
+## Prerequisite for deploying Turbonomic to OpenShift Cluster
 - OpenShift 4.6+
 - Argocd
 - Resource requirement, please refer to the [Turbonomic Installation Guide](https://docs.turbonomic.com/docApp/doc/index.html?config=Install_Pnt#!/Latest_Install/_INSTALL_Topics_XL/TOPIC_Minimum_Requirements_XL.xml).
+
+## Deploying with GitOps command line
 
 ### Create target namespace and configure security context for the target Cluster.
 ```shell
@@ -19,7 +21,7 @@ Password:
 
 ### Create Argocd app to deploy Turbonomic
 ```shell
-argocd app create turbo --repo https://github.com/cloud-pak-gitops/instana-gitops.git \
+argocd app create turbo --repo https://github.com/cloud-pak-gitops/turbo-gitops.git \
   --path turbo \
   --dest-namespace turbonomic \
   --dest-server <ARGO_CLUSTER> \
@@ -34,4 +36,3 @@ argocd app create turbo --repo https://github.com/cloud-pak-gitops/instana-gitop
    oc -n turbonomic expose service topology-processor --port=grpc-topology-processor
    oc -n turbonomic expose service api --port=https-api
 ```
-
