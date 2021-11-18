@@ -36,3 +36,32 @@ argocd app create turbo --repo https://github.com/cloud-pak-gitops/turbo-gitops.
    oc -n turbonomic expose service topology-processor --port=grpc-topology-processor
    oc -n turbonomic expose service api --port=https-api
 ```
+
+## Deploying with GitOps through Argocd Console
+
+### From Applications select +NEW APP
+
+#### GENERAL section
+input desired Application Name and select a Project.
+![new-app1](images/new-app1.png)
+
+#### SOURCE section, input
+`https://github.com/cloud-pak-gitops/turbo-gitops` for Repository URL.
+`HEAD` for Revision.
+Select `turbo` from Path drop down menu.
+![new-app-source](images/new-app-source.png)
+
+#### DESTINATION section
+Select the desired Cluster URL from the drop down menu.
+Input the target Namespace.
+![new-app-destination](images/new-app-destination.png)
+
+##### HELM section
+need to provide the docker credential for pulling docker images.
+Docker Username for `metadata.registryUsername`
+Docker Token for `metadata.registryPassword`
+![new-app-helm](images/new-app-helm.png)  
+  
+Then click CREATE to complete.
+
+
