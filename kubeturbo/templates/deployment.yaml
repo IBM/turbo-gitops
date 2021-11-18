@@ -1,0 +1,94 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "kubeturbo.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "kubeturbo.name" . }}
+    helm.sh/chart: {{ include "kubeturbo.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "kubeturbo.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      annotations:
+      {{- with .Values.annotations }}
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        app.kubernetes.io/name: {{ include "kubeturbo.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+      serviceAccountName: turbo-user
+{{- if .Values.image.imagePullSecret }}
+      imagePullSecrets:
+        - name: {{ .Values.image.imagePullSecret }}
+{{- end }}
+      containers:
+        - name: {{ .Chart.Name }}
+          env:
+          - name: KUBETURBO_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+{{- if .Values.image.related }}
+          image: {{ .Values.image.related }}
+{{- else }}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+{{- end }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          args:
+          - --turboconfig=/etc/kubeturbo/turbo.config
+          - --v={{ .Values.args.logginglevel }}
+          {{- if .Values.args.kubelethttps }}
+          - --kubelet-https={{ .Values.args.kubelethttps }}
+          - --kubelet-port={{ .Values.args.kubeletport }}
+          {{- end }}
+          {{- if .Values.args.sccsupport }}
+          - --scc-support={{ .Values.args.sccsupport }}
+          {{- end }}
+          {{- if .Values.args.failVolumePodMoves }}
+          - --fail-volume-pod-moves={{ .Values.args.failVolumePodMoves }}
+          {{- end }}
+          {{- if .Values.image.busyboxRepository }}
+          - --busybox-image={{ .Values.image.busyboxRepository }}
+          {{- end }}
+          {{- if .Values.image.imagePullSecret }}
+          - --busybox-image-pull-secret={{ .Values.image.imagePullSecret }}
+          {{- end }}
+          {{- if .Values.args.busyboxExcludeNodeLabels }}
+          - --cpufreq-job-exclude-node-labels={{ .Values.args.busyboxExcludeNodeLabels }}
+          {{- end }}
+          {{- if not .Values.args.stitchuuid }}
+          - --stitch-uuid={{ .Values.args.stitchuuid }}
+          {{- end }}
+          {{- if .Values.args.pre16k8sVersion }}
+          - --k8sVersion=1.5
+          {{- end }}
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+          volumeMounts:
+          - name: turbo-volume
+            mountPath: /etc/kubeturbo
+            readOnly: true
+          - name: turbonomic-credentials-volume
+            mountPath: /etc/turbonomic-credentials
+            readOnly: true
+          - name: varlog
+            mountPath: /var/log
+      volumes:
+      - name: turbo-volume
+        configMap:
+          name: turbo-config-{{ .Release.Name }}
+      - name: turbonomic-credentials-volume
+        secret:
+          defaultMode: 420
+          optional: true
+          secretName: {{ .Values.restAPIConfig.turbonomicCredentialsSecretName | quote }}
+      - name: varlog
+        emptyDir: {}
+      restartPolicy: Always
