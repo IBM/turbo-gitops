@@ -16,7 +16,7 @@
       - [SOURCE section](#source-section)
       - [DESTINATION section](#destination-section)
       - [HELM section](#helm-section)
-    - [Verify Deployment Result](#verify-deployment-result)
+  - [Verify Deployment Result](#verify-deployment-result)
 - [Deploying Kubeturbo(kube agent) with GitOps](#deploying-kubeturbokube-agent-with-gitops)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -100,7 +100,7 @@ input desired Application Name and select a Project.
     
 Then click CREATE to complete.
 
-### Verify Deployment Result
+## Verify Deployment Result
 - [Verify Deployment via CLI](Gitops-verify-deployment.md#verify-deployment-via-cli)
 - [Verify Deployment via GUI](Gitops-verify-deployment.md#verify-deployment-via-gui)
 
