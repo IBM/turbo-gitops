@@ -1,3 +1,22 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  
+
+- [Deploying Kubeturbo(kube agent) with GitOps](#deploying-kubeturbokube-agent-with-gitops)
+  - [Prerequisite for deploying Kubeturbo to OpenShift Cluster](#prerequisite-for-deploying-kubeturbo-to-openshift-cluster)
+  - [Deploying Kubeturbo(kube agent) with GitOps CLI](#deploying-kubeturbokube-agent-with-gitops-cli)
+    - [Login to Argo CD Cli](#login-to-argo-cd-cli)
+    - [Create Argocd app to deploy Kubeturbo](#create-argocd-app-to-deploy-kubeturbo)
+  - [Deploying Kubeturbo(kube agent) with GitOps via GUI Console](#deploying-kubeturbokube-agent-with-gitops-via-gui-console)
+    - [Navigate to Manage Application in Argocd Console, click +NEW APP.](#navigate-to-manage-application-in-argocd-console-click-new-app)
+      - [GENERAL section](#general-section)
+      - [SOURCE section](#source-section)
+      - [DESTINATION section](#destination-section)
+      - [HELM section](#helm-section)
+    - [Verify Deployment Result](#verify-deployment-result)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Deploying Kubeturbo(kube agent) with GitOps
 
 Before Kubeturbo deployment, some Turbonomic(server) informations will be needed:  
@@ -53,7 +72,7 @@ input desired Application Name and select a Project.
 
 ![new-app-destination](images/kt-new-app-destination.png)
 
-##### HELM section
+#### HELM section
 Need to provide the docker credential for pulling docker images.  
 - Input Turbonomic console URL for `serverMeta.turboServer`    
 - Input Turbonomic login username for `restAPIConfig.opsManagerUserName`    

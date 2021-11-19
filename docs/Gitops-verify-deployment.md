@@ -1,6 +1,16 @@
-## Verify Deployment Result
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  
 
-### Verify Deployment via CLI
+- [Verify Deployment Result](#verify-deployment-result)
+  - [Verify Deployment via CLI](#verify-deployment-via-cli)
+  - [Verify Deployment via GUI](#verify-deployment-via-gui)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+# Verify Deployment Result
+
+## Verify Deployment via CLI
 ```shell
 argocd app list 
 ```
@@ -36,7 +46,7 @@ apps                       Deployment          turbo      kubeturbo             
 rbac.authorization.k8s.io  ClusterRoleBinding             turbo-all-binding       Synced
 ```
 
-### Verify Deployment via GUI
+## Verify Deployment via GUI
 
 From Argocd Console, navigate to Manage Application, there should be app showing up, and the Status showing Healthy and Synced with Green icons.  
 

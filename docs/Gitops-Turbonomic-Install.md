@@ -1,3 +1,26 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  
+
+- [Deploying Turbonomic(server) with GitOps](#deploying-turbonomicserver-with-gitops)
+  - [Prerequisite for deploying Turbonomic to OpenShift Cluster](#prerequisite-for-deploying-turbonomic-to-openshift-cluster)
+  - [Deploying Turbonomic with GitOps CLI](#deploying-turbonomic-with-gitops-cli)
+    - [Create target namespace and configure security context for the target Cluster.](#create-target-namespace-and-configure-security-context-for-the-target-cluster)
+    - [Login to Argo CD Cli](#login-to-argo-cd-cli)
+    - [Create Argocd app to deploy Turbonomic](#create-argocd-app-to-deploy-turbonomic)
+    - [Create routes for Turbonomic](#create-routes-for-turbonomic)
+    - [Access Turbonomic Console](#access-turbonomic-console)
+  - [Deploying Turbonomic(server) with GitOps via GUI Console](#deploying-turbonomicserver-with-gitops-via-gui-console)
+    - [From Applications select +NEW APP](#from-applications-select-new-app)
+      - [GENERAL section](#general-section)
+      - [SOURCE section](#source-section)
+      - [DESTINATION section](#destination-section)
+      - [HELM section](#helm-section)
+    - [Verify Deployment Result](#verify-deployment-result)
+- [Deploying Kubeturbo(kube agent) with GitOps](#deploying-kubeturbokube-agent-with-gitops)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Deploying Turbonomic(server) with GitOps
 
 ## Prerequisite for deploying Turbonomic to OpenShift Cluster
@@ -68,7 +91,7 @@ input desired Application Name and select a Project.
 
 ![new-app-destination](images/new-app-destination.png)
 
-##### HELM section
+#### HELM section
 - Need to provide the docker credential for pulling docker images.  
 - Input Docker Username for `metadata.registryUsername`  
 - Input Docker Token for `metadata.registryPassword`   
@@ -81,6 +104,6 @@ Then click CREATE to complete.
 - [Verify Deployment via CLI](Gitops-verify-deployment.md#verify-deployment-via-cli)
 - [Verify Deployment via GUI](Gitops-verify-deployment.md#verify-deployment-via-gui)
 
-## Deploying Kubeturbo(kube agent) with GitOps
+# Deploying Kubeturbo(kube agent) with GitOps
 - [Deploy Kubeturbo via GitOps CLI](Gitops-kubeturbo-Install.md#deploying-kubeturbokube-agent-with-gitops-cli)
 - [Deploy Kubeturbo via GitOps GUI console](Gitops-kubeturbo-Install.md#deploying-kubeturbokube-agent-with-gitops-via-gui-console)

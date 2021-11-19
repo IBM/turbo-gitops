@@ -1,3 +1,14 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  
+
+- [Deploying Turbonomic(server and kube agent) with GitOps](#deploying-turbonomicserver-and-kube-agent-with-gitops)
+  - [Prerequisite for deploying Turbonomic to OpenShift Cluster](#prerequisite-for-deploying-turbonomic-to-openshift-cluster)
+  - [Deploying Turbonomic with GitOps](#deploying-turbonomic-with-gitops)
+  - [Verify Deployment with GitOps](#verify-deployment-with-gitops)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Deploying Turbonomic(server and kube agent) with GitOps
 
 ## Prerequisite for deploying Turbonomic to OpenShift Cluster
