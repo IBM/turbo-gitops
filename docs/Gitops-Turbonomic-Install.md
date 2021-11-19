@@ -8,7 +8,7 @@
 ## Deploying Turbonomic with GitOps CLI
 
 ### Create target namespace and configure security context for the target Cluster.
-This only required for Openshift OCP cluster.  
+This is only required for Openshift OCP cluster.  
 
 ```shell
 oc create ns turbonomic
