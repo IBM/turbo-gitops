@@ -28,3 +28,4 @@
 - Verify Deployment
   - [Verify Deployment via GUI](docs/Gitops-verify-deployment.md#verify-deployment-via-gui)
   - [Verify Deployment via CLI](docs/Gitops-verify-deployment.md#verify-deployment-via-cli)
+  - [Verify Kubeturbo agent from Turbonomic Console](docs/Gitops-verify-kubeturbo.md)
