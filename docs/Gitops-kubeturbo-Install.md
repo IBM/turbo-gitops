@@ -86,3 +86,4 @@ Then click CREATE to complete.
 ## Verify Deployment Result
 - [Verify Deployment via CLI](Gitops-verify-deployment.md#verify-deployment-via-cli)
 - [Verify Deployment via GUI](Gitops-verify-deployment.md#verify-deployment-via-gui)
+- [Verify Kubeturbo agent from Turbonomic Console](Gitops-verify-kubeturbo.md)
