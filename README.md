@@ -6,6 +6,7 @@
   - [Prerequisite for deploying Turbonomic to OpenShift Cluster](#prerequisite-for-deploying-turbonomic-to-openshift-cluster)
   - [Deploying Turbonomic with GitOps](#deploying-turbonomic-with-gitops)
   - [Verify Deployment with GitOps](#verify-deployment-with-gitops)
+  - [Access Turbonomic UI Console](#access-turbonomic-ui-console)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -29,3 +30,6 @@
   - [Verify Deployment via GUI](docs/Gitops-verify-deployment.md#verify-deployment-via-gui)
   - [Verify Deployment via CLI](docs/Gitops-verify-deployment.md#verify-deployment-via-cli)
   - [Verify Kubeturbo agent from Turbonomic Console](docs/Gitops-verify-kubeturbo.md)
+
+## Access Turbonomic UI Console
+- [How to access Turbonomic UI Console](docs/Gitops-Turbonomic-Install.md#access-turbonomic-ui-console)

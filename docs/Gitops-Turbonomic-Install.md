@@ -9,7 +9,6 @@
     - [Login to Argo CD Cli](#login-to-argo-cd-cli)
     - [Create Argocd app to deploy Turbonomic](#create-argocd-app-to-deploy-turbonomic)
     - [Create routes for Turbonomic](#create-routes-for-turbonomic)
-    - [Access Turbonomic Console](#access-turbonomic-console)
   - [Deploying Turbonomic(server) with GitOps via GUI Console](#deploying-turbonomicserver-with-gitops-via-gui-console)
     - [From Applications select +NEW APP](#from-applications-select-new-app)
       - [GENERAL section](#general-section)
@@ -17,6 +16,9 @@
       - [DESTINATION section](#destination-section)
       - [HELM section](#helm-section)
   - [Verify Deployment Result](#verify-deployment-result)
+  - [Access Turbonomic UI Console](#access-turbonomic-ui-console)
+    - [Get the Console URL from below command, the URL will be lised under `HOST/PORT`, use `https://<URL>` to accecc the console.](#get-the-console-url-from-below-command-the-url-will-be-lised-under-hostport-use-httpsurl-to-accecc-the-console)
+    - [Login Turbonomic UI Console](#login-turbonomic-ui-console)
 - [Deploying Kubeturbo(kube agent) with GitOps](#deploying-kubeturbokube-agent-with-gitops)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -62,14 +64,6 @@ argocd app create turbo --repo https://github.com/cloud-pak-gitops/turbo-gitops.
    oc -n turbonomic expose service api --port=https-api
 ```
 
-### Access Turbonomic Console
-Get the Console URL from below command, the URL will be lised under `HOST/PORT`, use `https://<URL>` to accecc the console.  
-
-```shell
-oc get route nginx -n turbonomic
-```
-
-
 ## Deploying Turbonomic(server) with GitOps via GUI Console
 
 ### From Applications select +NEW APP
@@ -103,6 +97,19 @@ Then click CREATE to complete.
 ## Verify Deployment Result
 - [Verify Deployment via CLI](Gitops-verify-deployment.md#verify-deployment-via-cli)
 - [Verify Deployment via GUI](Gitops-verify-deployment.md#verify-deployment-via-gui)
+
+## Access Turbonomic UI Console
+
+### Get the Console URL from below command, the URL will be lised under `HOST/PORT`, use `https://<URL>` to accecc the console.  
+
+```shell
+oc get route nginx -n turbonomic
+```
+
+### Login Turbonomic UI Console
+When first time login the Turbonomic UI console, it will let you to set up the administrator user passwrod.
+
+![turbo_initial_UI](images/turbo_initial_UI.png)  
 
 # Deploying Kubeturbo(kube agent) with GitOps
 - [Deploy Kubeturbo via GitOps CLI](Gitops-kubeturbo-Install.md#deploying-kubeturbokube-agent-with-gitops-cli)
