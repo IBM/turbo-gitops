@@ -5,6 +5,8 @@
 ![kt-verify-target](images/kt-verify-target.png)  
 
 - Under All Targets Tab, after kubeturbo installed, the corresponding Cluster Name should be showing up in the list.  
-The target name should be `Kubernetes` prefix + [AGENT CLUSTER NAME](Gitops-kubeturbo-Install.md#create-argocd-app-to-deploy-kubeturbo)
-![turbo_target_list](images/turbo_target_list.png)
+The target name should be `Kubernetes` prefix + [AGENT CLUSTER NAME](Gitops-kubeturbo-Install.md#create-argocd-app-to-deploy-kubeturbo)  
+In this example, the AGENT CLUSTER NAME is `my-kubeturbo-cluster`  
+
+![turbo_target_list](images/turbo_target_list.png)  
 
