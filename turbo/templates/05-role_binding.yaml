@@ -13,8 +13,7 @@ roleRef:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: turbonomic-role-binding
-  namespace: turbonomic
+  name: gitops-controller-role-binding
   annotations:
     argocd.argoproj.io/sync-wave: "100"
 roleRef:
