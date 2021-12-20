@@ -1,5 +1,5 @@
 ---
-repoURL: https://github.com/huang-cn/turbo-gitops
+repoURL: https://github.com/cloud-pak-gitops/turbo-gitops
 metadata:
   turbo_namespace: turbonomic
   registry: index.docker.io
