@@ -1,0 +1,26 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: update-image-settings
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+  namespace: openshift-gitops
+spec:
+  template:
+    spec:
+      containers:
+        - name: update-image-settings
+          image: quay.io/bitnami/kubectl:latest
+          command:
+            - /bin/sh
+            - -c
+            - |
+              set -x
+              sleep 360
+              kubectl -n turbonomic scale deployment/t8c-operator --replicas=0
+              kubectl -n turbonomic set image deployment/market market=docker.io/turbonomic/market-component:8.4.0
+              kubectl -n turbonomic set image deployment/ui ui=docker.io/turbonomic/ui:8.4.0
+      restartPolicy: Never
+      serviceAccountName: openshift-gitops-argocd-application-controller
+  backoffLimit: 5
