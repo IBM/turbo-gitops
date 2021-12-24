@@ -23,8 +23,9 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Deploying Turbonomic(server) with GitOps
-
+# Deploying Turbonomic(server) with GitOps  
+A Quick [Video Tutorial](https://youtu.be/gWR9CWNaU_A) is available online to walkthrough the deployment process.   
+  
 ## Prerequisite for deploying Turbonomic to OpenShift Cluster
 - OpenShift 4.6+
 - Argocd
